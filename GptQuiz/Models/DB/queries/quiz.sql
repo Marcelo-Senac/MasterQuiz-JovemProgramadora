@@ -3,6 +3,7 @@ CREATE DATABASE quiz;
 use quiz;
 
 SELECT * FROM perguntas;
+SELECT * FROM categorias;
 SELECT * FROM rankings;
 
 delete from rankings where id != 1;
@@ -10,6 +11,8 @@ delete from rankings where id != 1;
 drop table perguntas;
 drop table rankings;
 drop table categorias;
+
+DELETE FROM perguntas;
 
 CREATE TABLE categorias(
 	id INT auto_increment PRIMARY KEY,
@@ -41,9 +44,11 @@ ALTER TABLE perguntas ADD CONSTRAINT FK_Pergunta_Categoria
 	REFERENCES categorias (id)
 	ON DELETE CASCADE;
     
-insert into categorias (nome) values ("Posseidon");
-insert into categorias (nome) values ("Zeus");
-insert into categorias (nome) values ("Afrodite");
+insert into categoritempoas (nome) values ("Conhecimentos Gerais");
+insert into categorias (nome) values ("Administração");
+insert into categorias (nome) values ("Inglês");
+insert into categorias (nome) values ("Gastronomia");
+insert into categorias (nome) values ("Segurança do Trabalho");
 
 insert into perguntas (enunciado, alternativa1, alternativa2, alternativa3, alternativa4, resposta_correta, dica, fk_categoria_id) values ('Parramos', 'tC', 'Fleetwood', 'Matrix', 'Tacoma', 'Matrix', 'Bisiu', 1);
 insert into perguntas (enunciado, alternativa1, alternativa2, alternativa3, alternativa4, resposta_correta, dica, fk_categoria_id) values ('Jakhaly', 'Nuova 500', 'Escort', 'Compass', 'Express 1500', 'Nuova 500', 'Bisuo', 1);

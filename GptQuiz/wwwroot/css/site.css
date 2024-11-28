@@ -1,10 +1,21 @@
+@font-face {
+    font-family: 'Super Mario 256';
+    src: url('SuperMarioGalaxy.woff2') format('woff2'),
+        url('SuperMarioGalaxy.woff') format('woff'),
+        url('../fonts/SuperMario256.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
 html {
-  font-size: 8px;
+    font-size: 8px;
 }
 
 body {
     margin: 0;
     background-color: black;
+    font-family: 'Super Mario 256', sans-serif;
 }
 
 @media (min-width: 200px) {
@@ -36,7 +47,7 @@ body {
 
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 
@@ -91,28 +102,28 @@ h1 {
     cursor: pointer;
 }
 
-    .opcao input[type="radio"] {
-        display: none; /* Esconde o botão de rádio */
-    }
+.opcao input[type="radio"] {
+    display: none; /* Esconde o botão de rádio */
+}
 
-    .opcao label {
-        display: block;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #f9f9f9;
-        transition: background-color 0.3s, border-color 0.3s;
-        cursor: pointer;
-    }
+.opcao label {
+    display: block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s, border-color 0.3s;
+    cursor: pointer;
+}
 
-    /* Estilo quando o botão está selecionado */
-    .opcao input[type="radio"]:checked + label {
-        background-color: #d4edda; /* Fundo verde claro */
-        border-color: #28a745; /* Borda verde */
-        font-weight: bold; /* Negrito opcional */
-        color: #155724; /* Texto verde escuro */
-    }
+/* Estilo quando o botão está selecionado */
+.opcao input[type="radio"]:checked + label {
+    background-color: #d4edda; /* Fundo verde claro */
+    border-color: #28a745; /* Borda verde */
+    font-weight: bold; /* Negrito opcional */
+    color: #155724; /* Texto verde escuro */
+}
 
-    .opcao label:hover {
-        background-color: #f1f1f1; /* Realce ao passar o mouse */
-    }
+.opcao label:hover {
+    background-color: #f1f1f1; /* Realce ao passar o mouse */
+}

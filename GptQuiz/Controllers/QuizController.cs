@@ -1,6 +1,7 @@
 ﻿using GptQuiz.Models;
 using GptQuiz.Models.DB;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace GptQuiz.Controllers
 {
@@ -35,8 +36,8 @@ namespace GptQuiz.Controllers
 
             var perguntas = _context.Perguntas
                 .Where(p => p.Fk_Categoria_Id == categoriaId)
-                .OrderBy(x => Guid.NewGuid()) // Embaralhar as perguntas
-                .Take(10)
+                .OrderBy(x => EF.Functions.Random()) // Embaralhar as perguntas
+                .Take(5)
                 .Select(p => p.Id)
                 .ToList();
 
