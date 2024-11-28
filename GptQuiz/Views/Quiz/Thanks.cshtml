@@ -1,0 +1,46 @@
+﻿@model IEnumerable<GptQuiz.Models.Ranking>
+
+@{
+    ViewData["Title"] = "Resultado";
+}
+
+<h2>Obrigado, @ViewBag.Nome!</h2>
+<p>Sua pontuação: @ViewBag.Pontuacao</p>
+<p>Tempo total: @ViewBag.Tempo segundos</p>
+
+<h3>Ranking</h3>
+@* <div class="fundo-b"> *@
+
+
+    <table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Posição</th>
+            <th>Nome</th>
+            <th>Pontuação</th>
+            <th>Tempo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (ViewBag.Rankings != null)
+        {
+            int posicao = 1;
+            foreach (var item in ViewBag.Rankings)
+            {
+                <tr>
+                    <td>@posicao</td>
+                    <td>@item.Nome</td>
+                    <td>@item.Pontuacao</td>
+                    <td>@item.Tempo s</td>
+                </tr>
+                posicao++;
+            }
+        }
+    </tbody>
+</table>
+</div>
+
+
+<form method="get" asp-controller="Quiz" asp-action="Welcome">
+    <button type="submit">Jogar Novamente</button>
+</form>

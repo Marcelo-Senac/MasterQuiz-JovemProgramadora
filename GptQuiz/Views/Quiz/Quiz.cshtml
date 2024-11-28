@@ -1,0 +1,93 @@
+﻿@model GptQuiz.Models.Pergunta
+@{
+    ViewData["Title"] = "Quiz";
+}
+<div class="enunciado">
+    <h2>@Model.Enunciado</h2>
+    </div>
+@if (ViewBag.Mensagem_obrigatoria != null)
+{
+    <p class="mensagem_obrigatoria">@ViewBag.Mensagem_obrigatoria</p>
+}
+@if (ViewBag.Mensagem_correta != null)
+{
+    <p class="mensagem_correta">@ViewBag.Mensagem_correta</p>
+}
+@if (ViewBag.Mensagem_incorreta != null)
+{
+    <p class="mensagem_incorreta">@ViewBag.Mensagem_incorreta</p>
+}
+
+@* @if (ViewBag.Dica != null)
+{
+    <p><strong>Dica:</strong> @ViewBag.Dica</p>
+} *@
+
+<div id="mensagemErro" style="color:aqua;"></div>
+
+<form method="post" asp-controller="Quiz" asp-action="Quiz" onsubmit="return validarFormulario()">
+    <input type="hidden" name="id" value="@Model.Id" />
+    <input type="hidden" id="acao" name="acao" value="" />
+    <div class="opcao">
+        
+        <input type="radio" name="resposta" id="opcao1" value="@Model.Alternativa1" /> 
+        <label for="opcao1">@Model.Alternativa1</label>
+    </div>
+    <div class="opcao">
+        
+        <input type="radio" name="resposta" id="opcao2" value="@Model.Alternativa2" />
+        <label for="opcao2">@Model.Alternativa2</label>
+    </div>
+    <div class="opcao">
+        <input type="radio" name="resposta" id="opcao3" value="@Model.Alternativa3" />
+        <label for="opcao3">@Model.Alternativa3</label>
+    </div>
+    <div class="opcao">
+        <input type="radio" name="resposta" id="opcao4" value="@Model.Alternativa4" />
+        <label for="opcao4">@Model.Alternativa4</label>
+    </div>
+    <br />
+    <button type="submit" name="acao" value="Responder" onclick="setAcao('Responder')">Responder</button>
+    @* <button type="submit" name="acao" value="Dica" onclick="setAcao('Dica')">Mostrar Dica</button> *@
+</form>
+
+<script>
+    var acaoClicada = '';
+
+    function setAcao(acao) {
+        acaoClicada = acao;
+        document.getElementById('acao').value = acao;
+    }
+
+    function validarFormulario() {
+        if (acaoClicada === 'Responder') {
+            var radios = document.getElementsByName('resposta');
+            var respostaSelecionada = false;
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    respostaSelecionada = true;
+                    break;
+                }
+            }
+            if (!respostaSelecionada) {
+                // alert('Por favor, selecione uma resposta antes de responder.');
+                var mensagemErro = document.getElementById('mensagemErro');
+                mensagemErro.innerText = 'Por favor, selecione uma resposta antes de responder.';
+                return false; // Impede o envio do formulário
+            }
+        }
+        // Se acaoClicada for 'Dica', permite o envio sem validação adicional
+        return true; // Permite o envio do formulário
+    }
+
+    // Iniciar o temporizador na primeira pergunta
+    window.onload = function () {
+        if (sessionStorage.getItem('tempoInicial') === null) {
+            var tempoInicial = new Date().getTime();
+            sessionStorage.setItem('tempoInicial', tempoInicial);
+        }
+    };
+
+
+
+</script>

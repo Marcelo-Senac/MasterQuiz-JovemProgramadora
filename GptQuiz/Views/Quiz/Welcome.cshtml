@@ -1,0 +1,26 @@
+﻿@model IEnumerable<GptQuiz.Models.Categoria>
+
+@{
+    ViewData["Title"] = "Bem-vindo";
+}
+
+<div class="text-center">
+    <form method="post" asp-controller="Quiz" asp-action="Welcome">
+        <div>
+            <label class="form-nome" for="nome">Digite seu nome</label><br />
+            <input type="text" id="nome" name="nome" required /><br /><br />
+        </div>
+        
+        <label class="categoria"for="categoriaId">Selecione uma categoria:</label><br />
+        <select id="categoriaId" name="categoriaId" required>
+            @foreach (var categoria in Model)
+            {
+                <option value="@categoria.Id">@categoria.Nome</option>
+            }
+        </select><br /><br />
+
+
+        <button type="submit">Começar</button>
+    </form>
+</div>
+

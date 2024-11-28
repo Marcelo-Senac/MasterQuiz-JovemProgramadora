@@ -1,0 +1,118 @@
+html {
+  font-size: 8px;
+}
+
+body {
+    margin: 0;
+    background-color: black;
+}
+
+@media (min-width: 200px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 300px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+
+@media (min-width: 400px) {
+    html {
+        font-size: 30px;
+    }
+}
+
+
+@media (min-width: 768px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+
+.full-height {
+    height: 100vh;
+}
+
+.play{
+border-style: solid;
+border-radius: 25px;
+padding-left: 50px;
+padding-right: 50px;
+
+}
+
+.conteudo{
+
+}
+
+
+h1 {
+    color: white;
+   border-radius: 60px;
+}
+
+.form-nome {
+    color: white;
+    align-items:end;
+}
+
+.categoria{
+    color:white;
+}
+
+.enunciado{
+    color:white;
+}
+
+.mensagem_obrigatoria{
+    color: blue;
+}
+.mensagem_correta {
+    color: forestgreen;
+}
+.mensagem_incorreta {
+    color: red;
+}
+
+
+.opcao {
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+    .opcao input[type="radio"] {
+        display: none; /* Esconde o botão de rádio */
+    }
+
+    .opcao label {
+        display: block;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        transition: background-color 0.3s, border-color 0.3s;
+        cursor: pointer;
+    }
+
+    /* Estilo quando o botão está selecionado */
+    .opcao input[type="radio"]:checked + label {
+        background-color: #d4edda; /* Fundo verde claro */
+        border-color: #28a745; /* Borda verde */
+        font-weight: bold; /* Negrito opcional */
+        color: #155724; /* Texto verde escuro */
+    }
+
+    .opcao label:hover {
+        background-color: #f1f1f1; /* Realce ao passar o mouse */
+    }
