@@ -56,17 +56,35 @@ body {
 }
 
 .play{
+border-color: blueviolet;
 border-style: solid;
 border-radius: 25px;
 padding-left: 50px;
 padding-right: 50px;
+color:blueviolet;
+background-color: black;
+
 
 }
 
-.conteudo{
+    .play:hover {
+        border-color: blueviolet;
+        border-style: solid;
+        border-radius: 25px;
+        padding-left: 50px;
+        padding-right: 50px;
+        color: white;
+        background-color: blueviolet;
+    } 
 
+
+.agra {
+    color: #6600ff;
+}   
+
+.pos{
+    color:blueviolet;
 }
-
 
 h1 {
     color: white;
@@ -78,12 +96,18 @@ h1 {
     align-items:end;
 }
 
-.categoria{
+.categoria {
+    color: white;
+    font-weight: normal;
+}
+
+.num{
     color:white;
 }
 
-.enunciado{
-    color:white;
+.enunciado {
+    color:blueviolet;
+}
 }
 
 .mensagem_obrigatoria{
@@ -93,7 +117,11 @@ h1 {
     color: forestgreen;
 }
 .mensagem_incorreta {
-    color: red;
+    color:red;
+}
+
+.but {
+    align-items:center;
 }
 
 
@@ -117,12 +145,12 @@ h1 {
 }
 
 /* Estilo quando o botão está selecionado */
-.opcao input[type="radio"]:checked + label {
-    background-color: #d4edda; /* Fundo verde claro */
-    border-color: #28a745; /* Borda verde */
-    font-weight: bold; /* Negrito opcional */
-    color: #155724; /* Texto verde escuro */
-}
+    .opcao input[type="radio"]:checked + label {
+        background-color: #8c38e8; /* Fundo verde claro */
+        border-color: #8c38e8; /* Borda verde */
+        font-weight: bold; /* Negrito opcional */
+        color:white; /* Texto verde escuro */
+    }
 
 .opcao label:hover {
     background-color: #f1f1f1; /* Realce ao passar o mouse */

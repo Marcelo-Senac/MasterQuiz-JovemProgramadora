@@ -3,44 +3,52 @@
 @{
     ViewData["Title"] = "Resultado";
 }
+<div class="agra">
+<h2>Obrigada por jogar!!@ViewBag.Nome!</h2>
 
-<h2>Obrigado, @ViewBag.Nome!</h2>
 <p>Sua pontuação: @ViewBag.Pontuacao</p>
 <p>Tempo total: @ViewBag.Tempo segundos</p>
+</div>
 
-<h3>Ranking</h3>
+<h3 class="pos"> Ranking</h3>
 @* <div class="fundo-b"> *@
-
+    
 
     <table class="table table-bordered">
     <thead>
-        <tr>
+        <tr class="pos">
             <th>Posição</th>
             <th>Nome</th>
             <th>Pontuação</th>
             <th>Tempo</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody> 
+       
+0
         @if (ViewBag.Rankings != null)
         {
+
             int posicao = 1;
+            
             foreach (var item in ViewBag.Rankings)
             {
-                <tr>
+                <tr class="num">
                     <td>@posicao</td>
-                    <td>@item.Nome</td>
+                    <td> @item.Nome</td>
                     <td>@item.Pontuacao</td>
                     <td>@item.Tempo s</td>
+                    
                 </tr>
                 posicao++;
             }
         }
     </tbody>
 </table>
-</div>
 
 
 <form method="get" asp-controller="Quiz" asp-action="Welcome">
-    <button type="submit">Jogar Novamente</button>
+    <div class="d-flex justify-content-center">
+        <button class="but" type="submit">Jogar Novamente</button>
+    </div>
 </form>
